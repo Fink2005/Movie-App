@@ -55,13 +55,18 @@ export default function Index() {
             <FlatList
               data={trendingMovies}
               renderItem={({ item, index }) => (
-                <TrendingCard movie_id={item.movie_id} poster_url={item.poster_url} index={index} />
+                <TrendingCard
+                  movie_id={item.movie_id}
+                  poster_url={item.poster_url}
+                  index={index}
+                  title={item.title}
+                />
               )}
               horizontal
               ItemSeparatorComponent={() => <View className="w-5" />}
               showsHorizontalScrollIndicator={false}
               className="mb-5"
-              keyExtractor={(item) => item.$id.toString()}
+              keyExtractor={(item) => item.movie_id.toString()}
               contentContainerStyle={{
                 gap: 20,
                 paddingRight: 5,
